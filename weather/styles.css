@@ -1,0 +1,112 @@
+@font-face {
+    font-family: 'YourCustomFont';
+    src: url('assets/font.ttf') format('truetype');
+}
+*{
+    font-family: 'YourCustomFont', sans-serif;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #252C43;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    background-image: linear-gradient(to bottom, #070C24, #252C43);
+    border: 0.5px solid grey;
+}
+
+
+h1 {
+    margin-bottom: 20px;
+    color: crimson;
+}
+
+input[type="text"] {
+    width: calc(100% - 70px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #252C43;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 0.5px solid grey;
+}
+
+button:hover {
+    background-color: dodgerblue;
+}
+
+#weatherInfo {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.weather-icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.weather-icon {
+    width: 100px;
+    height: 100px;
+}
+
+#searchInput {
+    text-transform: capitalize;
+    background-color: #252C43;
+    color: white;
+}
+
+.main-info {
+    font-size: 40px;
+    padding-top: 5px;
+    margin-left: 25px;
+    color: crimson;
+    font-weight: bold;
+}
+
+.weather-description {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.weather-blocks {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.weather-block {
+    width: calc(50% - 10px);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2rem;
+}
+
+h2,
+h3 {
+    color: crimson;
+    text-decoration: underline;
+}

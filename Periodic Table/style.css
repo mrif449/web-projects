@@ -1,0 +1,324 @@
+/* Set the background color of the page */
+body {
+	background-color: black;
+	color: white;
+	font-family: 'Fira Code', monospace;
+}
+
+/* Hidden scroll bar */
+body::-webkit-scrollbar{
+    display: none;
+}
+/* Style the header */
+header {
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	white-space: nowrap;
+	overflow: hidden;
+	
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.logo{
+	height: 50%;
+    width: 50%;
+    animation: spin 5s linear infinite;
+}
+
+a{
+	text-align: center;
+	display: block; 
+}
+
+.animated_title{
+    background-image: linear-gradient(-225deg, darkblue 10%, orangered 29%, teal 67%, darkblue 100%);
+	background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 3s linear infinite;
+    font-size: 50px;
+    width: auto;
+    position: relative;
+    justify-content: center;
+}
+@keyframes textclip {
+	to {
+	  background-position: 200% center;
+	}
+  }
+  
+
+
+header h1 {
+	font-size: 36px;
+	margin: 0;
+}
+
+/* Style the navigation menu */
+nav {
+	margin-bottom: 20px;
+}
+
+nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+}
+
+nav li {
+	margin-right: 20px;
+}
+
+nav a {
+	color: white;
+	text-decoration: none;
+}
+
+/* Style the periodic table */
+table {
+	margin: 0 auto;
+	border-collapse: collapse;
+}
+
+td, th {
+	border: 2px solid white;
+	padding: 10px;
+	text-align: left;
+}
+
+td{
+	transition: transform 0.3s;
+}
+
+
+td:hover{
+  transform: scale(1.13);
+}
+th {
+	text-align: center;
+	background-color: #212121;
+	color: white;
+	border-radius: 5px;
+}
+
+
+.element {
+	display: inline-table;
+	width: 60px;
+	height: 60px;
+	text-align: left;
+	position: relative;
+    margin-top: 0px;
+	line-height: 20px;
+	border-radius: 5px;
+}
+
+
+.subheader{
+    font-size: 20px;
+    text-align: center;
+}
+
+
+.other_element{
+    background-color: green;
+}
+.noble_gas{
+    background-color: rgb(0, 183, 255);
+}
+.alkali_metals{
+    background-color: orangered;
+}
+.alkaline_earth_metals{
+    background-color: goldenrod;
+}
+.transition_metals{
+    background-color: red;
+}
+.post_transition_metals{
+    background-color: peru;
+}
+.metalloids{
+    background-color: lightseagreen;
+}
+.unknown_elements{
+    background-color: darkgrey;
+}
+.lanthanoids{
+    background-color: purple;
+}
+.actinoids{
+    background-color: darkblue;
+}
+
+
+
+@keyframes flashing1 {
+	from { background-color: black; }
+	to { background-color: orangered; }
+  }
+.head1{
+	animation-name: flashing1;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	border-radius: 2px;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+
+@keyframes flashing2 {
+	from { background-color: black; }
+	to { background-color: goldenrod; }
+  }
+.head2{
+	animation-name: flashing2;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	border-radius: 2px;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+
+@keyframes flashing3 {
+	from { background-color: black; }
+	to { background-color: red; }
+  }
+.head3{
+	animation-name: flashing3;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	border-radius: 2px;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+
+@keyframes flashing4 {
+	from { background-color: black; }
+	to { background-color: peru; }
+  }
+.head4{
+	animation-name: flashing4;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	border-radius: 2px;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+
+@keyframes flashing5 {
+	from { background-color: black; }
+	to { background-color: lightseagreen; }
+  }
+.head5{
+	animation-name: flashing5;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	border-radius: 2px;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+
+@keyframes flashing6 {
+	from { background-color: black; }
+	to { background-color: purple; }
+  }
+.head6{
+	animation-name: flashing6;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	border-radius: 2px;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+
+@keyframes flashing7 {
+	from { background-color: black; }
+	to { background-color: darkblue; }
+  }
+.head7{
+	animation-name: flashing7;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	border-radius: 2px;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+
+@keyframes flashing8 {
+	from { background-color: black; }
+	to { background-color: green; }
+  }
+.head8{
+	animation-name: flashing8;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	border-radius: 2px;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+
+@keyframes flashing9 {
+	from { background-color: black; }
+	to { background-color: rgb(0, 183, 255); }
+  }
+.head9{
+	animation-name: flashing9;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	border-radius: 2px;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+
+@keyframes flashing10 {
+	from { background-color: black; }
+	to { background-color: darkgrey; }
+  }
+.head10{
+	animation-name: flashing10;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	border-radius: 2px;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+
+
+.flash {
+	border-radius: 5px;
+  }
+
+
+.alerts{
+    text-align: center;
+    text-decoration: underline;
+}
+
+.atomic_number{
+    font-size: 12px;
+}
+.atomic_mass{
+    font-size: 12px;
+}
+.symbol{
+    font-size: 30px;
+}
+.name{
+    font-size: 12px;
+}
+
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

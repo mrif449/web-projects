@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Text to Binary Converter</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=M+PLUS+1+Code:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+        <h1>Text to Binary Converter</h1>
+        <div class="input-container">
+            <textarea id="input-text" placeholder="Enter text..."></textarea>
+        </div>
+        <button onclick="convertToBinary()">Convert to Binary</button>
+        <div class="output-container">
+            <textarea id="output-binary" placeholder="Binary output..."></textarea>
+            <button class="copy-icon" onclick="copyToClipboard('output-binary')">
+                <img class="copy-icon" src="image/copy.png" alt="copy">
+            </button>
+        </div>
+        <div class="input-container">
+            <textarea id="input-binary" placeholder="Enter binary..."></textarea>
+        </div>
+        <button onclick="convertToText()">Convert to Text</button>
+        <div class="output-container">
+            <textarea id="output-text" placeholder="Text output..."></textarea>
+            <button class="copy-icon" onclick="copyToClipboard('output-text')">
+                <img class="copy-icon" src="image/copy.png" alt="copy">
+            </button>
+        </div>
+    </div>
+	<script src="script.js"></script>
+</body>
+</html>

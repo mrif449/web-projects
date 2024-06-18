@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Morse Code Converter and Decrypter</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=M+PLUS+1+Code:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+	<h1>Morse Code Converter and Decrypter</h1>
+	<form>
+		<label for="input">Input:</label>
+		<input type="text" id="input" name="input" placeholder="Enter text or Morse code">
+		<br><br>
+		<label for="output">Output:</label>
+		<input type="text" id="output" name="output" readonly>
+		<br><br>
+		<button type="button" onclick="convert()">Convert</button>
+		<button type="button" onclick="decrypt()">Decrypt</button>
+	</form>
+	<script src="script.js"></script>
+</body>
+</html>

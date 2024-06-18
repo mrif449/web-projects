@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="countdown">
+        <h1 id="countdown-text">Countdown Timer</h1>
+        <div class="timer" id="timer">
+            <span id="days"></span>
+            <span id="hours"></span>
+            <span id="minutes"></span>
+            <span id="seconds"></span>
+        </div>
+        <div id="timer-expired-message" style="display:none;">Time's up!</div>
+        <div class="input-fields">
+            <input type="number" id="hours-input" placeholder="Hours" min="0">
+            <input type="number" id="minutes-input" placeholder="Minutes" min="0">
+            <input type="number" id="seconds-input" placeholder="Seconds" min="0">
+        </div>
+        <button onclick="startTimer()">Start</button>
+        <button onclick="resetTimer()">Reset</button>
+        <button id="stop-button" onclick="stopTimer()">Stop</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

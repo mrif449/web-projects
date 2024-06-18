@@ -1,0 +1,84 @@
+* {
+    font-family: Anton, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: black;
+    color: white;
+}
+
+.countdown {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.timer span {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.timer {
+    font-size: 2em;
+}
+
+#countdown-text {
+    font-size: 5em;
+}
+
+.input-fields {
+    margin-top: 20px;
+}
+
+input,
+button {
+    font-size: 1.5em;
+}
+
+button {
+    margin-top: 10px;
+}
+
+.input-fields input,
+.input-fields button {
+    margin: 5px;
+}
+
+#timer-expired-message {
+    font-size: 1.5em;
+    color: red;
+    margin-top: 20px;
+}
+
+.progress-ring {
+    position: relative;
+    width: 120px;
+    height: 120px;
+}
+
+.progress-circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip: rect(0, 120px, 120px, 60px);
+    background-color: #fff;
+    border-radius: 50%;
+    transform: rotate(0deg);
+}
+
+.progress-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip: rect(0, 60px, 120px, 0);
+    background-color: #000;
+    border-radius: 50%;
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Encrypt and Decrypt Program</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=M+PLUS+1+Code:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Encrypt and Decrypt Program</h1>
+        <form>
+            <label for="input-text">Enter Text:</label>
+            <textarea id="input-text" rows="5"></textarea>
+            <div class="button-group">
+                <button type="button" onclick="encrypt()">Encrypt</button>
+                <button type="button" onclick="decrypt()">Decrypt</button>
+            </div>
+            <label for="output-text">Output:</label>
+            <textarea id="output-text" rows="5" class="encrypted"></textarea>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

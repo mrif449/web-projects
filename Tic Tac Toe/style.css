@@ -1,0 +1,85 @@
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 50px;
+  }
+body{
+  background-color: lightseagreen;
+}
+  h1{
+    display: grid;
+    text-align: center;
+    background-color: rgb(233, 75, 75);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    width: auto;
+    margin: 0 auto;
+  }
+  
+  .cell {
+    width: 100px;
+    height: 100px;
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: lightgoldenrodyellow;
+  }
+  
+  .cell.x {
+    color: #2d9cdb;
+  }
+  
+  .cell.o {
+    color: #ff5e5e;
+  }
+  
+  
+  .game-status {
+    margin-top: 20px;
+    font-size: 2rem;
+    text-align: center;
+  }
+  
+  .restart-button {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    background-color: darkblue;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .restart-button:hover {
+    background-color: darkviolet;
+  }
+  
+  .message {
+    position: fixed;
+    bottom: 2;
+    width: auto;
+    text-align: center;
+    background-color: green;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px;
+    box-sizing: border-box;
+    border-top: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .highlight {
+    background-color: lightgreen;
+  }
+  
