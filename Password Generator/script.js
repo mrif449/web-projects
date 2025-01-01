@@ -1,9 +1,10 @@
 const lengthSlider = document.querySelector(".pass-length input");
 const options = document.querySelectorAll(".option input");
-const copyIcon = document.querySelector(".input-box span");
+const copyIcon = document.querySelector(".copy-btn"); // Select the button
 const passwordInput = document.querySelector(".input-box input");
 const passIndicator = document.querySelector(".pass-indicator");
 const generateBtn = document.querySelector(".generate-btn");
+const copyFeedback = document.querySelector(".copy-feedback");
 
 const characters = {
     lowercase: "abcdefghijklmnopqrstuvwxyz",
@@ -69,7 +70,7 @@ const updatePassIndicator = () => {
     const includesUppercase = options[1].checked;
     const includesNumbers = options[2].checked;
     const includesSymbols = options[3].checked;
-    const includesSpaces = options[4].checked;
+    const includesSpaces = options[5].checked;
 
     // Add strength for each included character type
     strength += includesLowercase ? 1 : 0;
@@ -101,17 +102,25 @@ const updateSlider = () => {
 updateSlider();
 
 const copyPassword = () => {
-    navigator.clipboard.writeText(passwordInput.value);
-    copyIcon.innerText = "check";
-    copyIcon.style.color = "#4285f4";
-    setTimeout(() => {
-        copyIcon.innerText = "copy_all";
-        copyIcon.style.color = "#707070";
-    }, 1500);
-}
+    // Ensure password input has value
+    if (passwordInput.value) {
+        navigator.clipboard.writeText(passwordInput.value)
+            .then(() => {
+                copyFeedback.classList.add("show"); // Show feedback
+                setTimeout(() => {
+                    copyFeedback.classList.remove("show"); // Hide feedback
+                }, 1500);
+            })
+            .catch((err) => {
+                console.error("Failed to copy: ", err);
+            });
+    } else {
+        alert("Nothing to copy! Generate a password first.");
+    }
+};
 
-const passwordLengthSlider = document.getElementById('passwordLengthSlider');
-const passwordLengthValue = document.getElementById('passwordLengthValue');
+const passwordLengthSlider = document.getElementById('length-slider');
+const passwordLengthValue = document.querySelector('.length-value');
 
 function updatePasswordLengthValue() {
     passwordLengthValue.textContent = passwordLengthSlider.value;
@@ -130,7 +139,6 @@ function increasePasswordLength() {
         updatePasswordLengthValue();
     }
 }
-
 
 copyIcon.addEventListener("click", copyPassword);
 lengthSlider.addEventListener("input", updateSlider);

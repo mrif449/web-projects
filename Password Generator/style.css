@@ -1,173 +1,355 @@
+/* Modern CSS with improved styling and responsiveness */
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-*{
+:root {
+    --primary-blue: #2563eb;
+    --primary-blue-hover: #1d4ed8;
+    --background-dark: #1a1a1a;
+    --text-light: #f8fafc;
+    --border-color: #3f3f46;
+    --success-color: #22c55e;
+    --warning-color: #eab308;
+    --error-color: #ef4444;
+    --transition-speed: 0.1s;
+}
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    color: white;
+    font-family: 'Inter', sans-serif;
 }
 
-body{
+body {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: grey;
+    background: linear-gradient(135deg, var(--background-dark), #242424);
+    color: var(--text-light);
+    line-height: 1.5;
 }
 
-.container{
-    width: 450px;
-    background: #242424;
-    border-radius: 5px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+.container {
+    width: min(450px, 95%);
+    background: var(--background-dark);
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    transition: transform var(--transition-speed);
 }
 
-.container h2{
+.container:hover {
+    transform: translateY(-2px);
+}
+
+.container h2 {
     font-weight: 600;
-    font-size: 1.31rem;
-    padding: 1rem 1.75rem;
-    border-bottom: 1px solid #67bef8;
+    font-size: 1.5rem;
+    padding: 1.25rem 2rem;
+    border-bottom: 2px solid var(--primary-blue);
+    color: var(--text-light);
 }
 
-.wrapper{
-    margin: 1.25rem 1.75rem;
+.wrapper {
+    margin: 1.5rem 2rem;
 }
 
-.wrapper .input-box{
+.wrapper .input-box {
     position: relative;
 }
 
-.input-box input{
-    font-family: "JetBrains Mono";
+.input-box input {
+    font-family: "JetBrains Mono", monospace;
     width: 100%;
-    height: 53px;
-    color: white;
-    background: none;
+    height: 56px;
+    color: var(--text-light);
+    background: rgba(255, 255, 255, 0.05);
     font-size: 1.1rem;
     font-weight: 500;
-    border-radius: 5px;
+    border-radius: 8px;
     letter-spacing: 1.4px;
-    border: 1px solid #aaa;
-    padding: 0 2.85rem 0 1rem;
+    border: 2px solid var(--border-color);
+    padding: 0 3rem 0 1.25rem;
+    transition: all var(--transition-speed);
 }
 
-.input-box span{
+.input-box input:focus {
+    border-color: var(--primary-blue);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+.input-box span {
     position: absolute;
-    right: 13px;
+    right: 16px;
     cursor: pointer;
-    line-height: 53px;
-    color: white;
+    line-height: 56px;
+    color: var(--text-light);
+    transition: color var(--transition-speed);
 }
 
-.input-box span:hover{
-    color: #0077B6 !important;
+.input-box span:hover {
+    color: var(--primary-blue);
 }
 
-.wrapper .pass-indicator{
+.wrapper .pass-indicator {
     width: 100%;
-    height: 4px;
+    height: 6px;
     position: relative;
-    margin-top: 0.75rem;
-    border-radius: 5px;
+    margin-top: 1rem;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    overflow: hidden;
 }
 
-.pass-indicator::before{
+.pass-indicator::before {
     position: absolute;
     content: "";
     height: 100%;
     width: 50%;
     border-radius: inherit;
-    transition: width 0.3s ease;
+    transition: all var(--transition-speed);
 }
 
-.pass-indicator#weak::before{
+.pass-indicator#weak::before {
     width: 20%;
-    background: #e64a4a;
+    background: var(--error-color);
 }
 
-.pass-indicator#medium::before{
+.pass-indicator#medium::before {
     width: 50%;
-    background: #f1c80b;
+    background: var(--warning-color);
 }
 
-.pass-indicator#strong::before{
+.pass-indicator#strong::before {
     width: 100%;
-    background: #43A047;
+    background: var(--success-color);
 }
 
-.wrapper .pass-length{
-    margin: 1.56rem 0 1.25rem;
+.wrapper .pass-length {
+    margin: 1.75rem 0 1.5rem;
 }
 
-.pass-length .details{
+.pass-length .details {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
 }
 
-.pass-length input{
+.pass-length input[type="range"] {
     width: 100%;
-    height: 5px;
+    height: 6px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    cursor: pointer;
 }
 
-.pass-settings .options{
+.pass-length input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    background: var(--primary-blue);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform var(--transition-speed);
+}
+
+.pass-length input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+}
+
+.pass-settings .options {
     display: flex;
     list-style: none;
     flex-wrap: wrap;
+    gap: 1rem;
     margin-top: 1rem;
 }
 
-.pass-settings .options .option{
+.pass-settings .options .option {
     display: flex;
     align-items: center;
-    margin-bottom: 1rem;
-    width: calc(100% / 2);
+    width: calc(50% - 0.5rem);
 }
 
-.options .option:first-child{
-    pointer-events: none;
+.options .option input[type="checkbox"] {
+    height: 18px;
+    width: 18px;
+    cursor: pointer;
+    accent-color: var(--primary-blue);
 }
 
-.options .option:first-child input{
+.options .option:first-child input {
     opacity: 0.7;
 }
 
-.options .option input{
-    height: 16px;
-    width: 16px;
+.options .option label {
     cursor: pointer;
+    color: var(--text-light);
+    padding-left: 0.75rem;
 }
 
-.options .option label{
-    cursor: pointer;
-    color: white;
-    padding-left: 0.63rem;
-}
-
-.wrapper .generate-btn{
+.wrapper .generate-btn {
     width: 100%;
-    color: #fff;
+    color: var(--text-light);
     border: none;
     outline: none;
     cursor: pointer;
-    background:#0077C9;
-    font-size: 1.06rem;
-    padding: 0.94rem 0;
-    border-radius: 5px;
+    background: var(--primary-blue);
+    font-size: 1.1rem;
+    padding: 1rem 0;
+    border-radius: 8px;
     text-transform: uppercase;
-    margin: 0.94rem 0 1.3rem;
+    font-weight: 600;
+    margin: 1.25rem 0;
+    transition: all var(--transition-speed);
 }
 
-.wrapper .generate-btn:hover{
-    background-color: #0077B6;
+.wrapper .generate-btn:hover {
+    background: var(--primary-blue-hover);
+    transform: translateY(-1px);
 }
 
-.title{
-    color: #67bef8;
+.wrapper .generate-btn:active {
+    transform: translateY(1px);
 }
 
-.main_title{
+.title, .main_title, .length-value {
+    color: var(--primary-blue);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
     text-align: center;
-    color: #67bef8;
+}
+
+.length-value{
+    color: whitesmoke;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .wrapper {
+        margin: 1rem;
+    }
+    
+    .container h2 {
+        font-size: 1.25rem;
+        padding: 1rem 1.5rem;
+    }
+    
+    .pass-settings .options .option {
+        width: 100%;
+    }
+    
+    .options .option label {
+        font-size: 0.9rem;
+    }
+}
+
+/* Dark mode optimization */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-blue: #3b82f6;
+        --primary-blue-hover: #2563eb;
+    }
+}
+
+.app-container {
+    width: 100%;
+    max-width: 40%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.copy-btn {
+    position: absolute;
+    right: 0.75rem;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.copy-feedback {
+    position: absolute;
+    right: 45px;
+    top: 90%;
+    padding-bottom: 15%;
+    transform: translateY(-50%);
+    font-size: 0.875rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    color: green;
+}
+
+.copy-feedback.show {
+    opacity: 1;
+}
+.app-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.app-logo {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 1rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.container {
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.strength-label {
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    text-align: right;
+    transition: color 0.3s;
+}
+
+.input-box {
+    position: relative;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    padding: 0.5rem;
+}
+
+.option {
+    transition: transform 0.2s;
+}
+
+.option:hover {
+    transform: translateX(5px);
+}
+.generate-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+/* Remove the ::after pseudo-element */
+.generate-btn-wrapper .generate-btn::after {
+    display:none;
 }

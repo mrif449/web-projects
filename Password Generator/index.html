@@ -1,69 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
+    <meta name="description" content="Secure Password Generator - Create strong and customizable passwords">
+    <meta name="theme-color" content="#2563eb">
+    
+    <!-- Fonts and Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="assets/logo.webp" type="image/x-icon">
-    <title>Password Gernerator</title>
+    <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
+    
+    <!-- Additional Styles -->
+    <style>
+        .app-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .app-logo {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 1rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .container {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .strength-label {
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+            text-align: right;
+            transition: color 0.3s;
+        }
+
+        .input-box {
+            position: relative;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            padding: 0.5rem;
+        }
+
+        .copy-feedback {
+            position: absolute;
+            right: 45px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.875rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .copy-feedback.show {
+            opacity: 1;
+        }
+
+        .option {
+            transition: transform 0.2s;
+        }
+
+        .option:hover {
+            transform: translateX(5px);
+        }
+
+        .generate-btn-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .generate-btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .generate-btn:active::after {
+            width: 200%;
+            height: 200%;
+        }
+    </style>
+    
+    <title>Password Generator</title>
 </head>
 
 <body>
+    <main class="app-container">
+        <header class="app-header">
+            <img src="assets/logo.png" alt="Password Generator Logo" class="app-logo">
+            <h1 class="main_title">Password Generator</h1>
+        </header>
 
-    <div class="container">
-        <h2 class="main_title">Password Generator</h2>
-        <div class="wrapper">
-            <div class="input-box">
-                <input type="text" disabled>
-                <span class="material-symbols-rounded">copy_all</span>
-            </div>
-            <div class="pass-indicator"></div>
-            <div class="pass-length">
-                <div class="details">
-                    <label class="title">Password Length:</label>
-                    <span></span>
+        <div class="container">
+            <div class="wrapper">
+                <div class="input-box" role="group" aria-labelledby="password-label">
+                    <label id="password-label" class="sr-only">Generated Password</label>
+                    <input 
+                        type="text" 
+                        aria-label="Generated password"
+                        readonly
+                        autocomplete="off"
+                        spellcheck="false"
+                    >
+                    <span class="copy-feedback">Copied!</span>
+                    <button 
+                        class="copy-btn" 
+                        aria-label="Copy password"
+                        title="Copy to clipboard"
+                    >
+                        <span class="material-symbols-rounded copyPassword">copy_all</span>
+                    </button>
                 </div>
-                <input type="range" min="4" max="32" value="20" step="1">
-            </div>
-            <div class="pass-settings">
-                <label class="title">Password Includes:</label>
-                <ul class="options">
-                    <li class="option">
-                        <input type="checkbox" id="lowercase" checked>
-                        <label for="lowercase">Lowercase (a-z)</label>
-                    </li>
-                    <li class="option">
-                        <input type="checkbox" id="uppercase" checked>
-                        <label for="uppercase">Uppercase (A-Z)</label>
-                    </li>
-                    <li class="option">
-                        <input type="checkbox" id="numbers" checked>
-                        <label for="numbers">Numbers (0-9)</label>
-                    </li>
-                    <li class="option">
-                        <input type="checkbox" id="symbols" checked>
-                        <label for="symbols">Symbols (!-$^+)</label>
-                    </li>
-                    <li class="option">
-                        <input type="checkbox" id="exc-duplicate" checked>
-                        <label for="exc-duplicate">Exclude Duplicate</label>
-                    </li>
-                    <li class="option">
-                        <input type="checkbox" id="spaces">
-                        <label for="spaces">Include Spaces</label>
-                    </li>
-                </ul>
-            </div>
 
-            <button class="generate-btn">Generate Password</button>
+                <div class="pass-indicator" role="progressbar" aria-label="Password strength">
+                    <div class="strength-label"></div>
+                </div>
 
+                <div class="pass-length">
+                    <div class="details">
+                        <label for="length-slider" class="title">Password Length:</label>
+                        <span class="length-value"></span>
+                    </div>
+                    <input 
+                        type="range" 
+                        id="length-slider"
+                        min="4" 
+                        max="32" 
+                        value="20" 
+                        step="1"
+                        aria-label="Select password length"
+                    >
+                </div>
+
+                <div class="pass-settings">
+                    <h2 class="title">Password Includes:</h2>
+                    <ul class="options" role="group" aria-label="Password options">
+                        <li class="option">
+                            <div class="checkbox-wrapper">
+                                <input type="checkbox" id="lowercase" checked>
+                                <label for="lowercase">Lowercase (a-z)</label>
+                            </div>
+                        </li>
+                        <li class="option">
+                            <div class="checkbox-wrapper">
+                                <input type="checkbox" id="uppercase" checked>
+                                <label for="uppercase">Uppercase (A-Z)</label>
+                            </div>
+                        </li>
+                        <li class="option">
+                            <div class="checkbox-wrapper">
+                                <input type="checkbox" id="numbers" checked>
+                                <label for="numbers">Numbers (0-9)</label>
+                            </div>
+                        </li>
+                        <li class="option">
+                            <div class="checkbox-wrapper">
+                                <input type="checkbox" id="symbols" checked>
+                                <label for="symbols">Symbols (!-$^+)</label>
+                            </div>
+                        </li>
+                        <li class="option">
+                            <div class="checkbox-wrapper">
+                                <input type="checkbox" id="exc-duplicate" checked>
+                                <label for="exc-duplicate">Exclude Duplicate</label>
+                            </div>
+                        </li>
+                        <li class="option">
+                            <div class="checkbox-wrapper">
+                                <input type="checkbox" id="spaces">
+                                <label for="spaces">Include Spaces</label>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="generate-btn-wrapper">
+                    <button class="generate-btn" aria-label="Generate new password">
+                        Generate Password
+                    </button>
+                </div>
+            </div>
         </div>
-    </div>
+    </main>
 
     <script src="script.js"></script>
 </body>
-
 </html>
